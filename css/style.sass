@@ -1,0 +1,374 @@
+//Grid
+$grid-columns: 12
+$col-max-width: 100%
+$col-min-width: $col-max-width / $grid-columns
+
+//Colors
+$h2-color: #222626
+$h4-color: #67676d
+$p-color: #959595
+$box-1-color: #F5989D
+$box-2-color: #615F7D
+$box-3-color: #BD8CBF
+$box-5-color: #82CA9C
+$reasons-sec-bg-color: #82CA9C
+$buying-sec-bg-color: #F6F7FA
+$buying-h3-color: #2E3B4E
+$buying-p-color: #8297A7
+$label-bg-color: #E1E1E1
+$label-hover-bg-color: #BD8CBF
+$button-bg-color: #82CA9C
+$icon-color: #C5C5C5
+$footer-color: #F6F7FA
+$footer-bg-color: #192431
+$form-info-color: #57697F
+
+//Fonts
+$base-font-family: 'Open Sans', sans-serif
+$secondary-font-family: 'FontAwesome'
+
+//Font weights
+$light: 300
+$regular: 400
+$semi-bold: 600
+$bold: 700
+$extra-bold: 800
+
+//Breakpoints
+$break-sm: 768px
+$break-md: 992px
+$break-lg: 1200px
+
+//Mixins
+=grid-system($size)
+    @for $i from 1 through $grid-columns
+        .col-#{$size}-#{$i}
+            width: $col-min-width * $i
+    
+=grid-offset-system($size)
+    @for $i from 0 through $grid-columns - 1
+        .col-#{$size}-offset-#{$i}
+            margin-left: $col-min-width * $i
+
+=flex-grid-system($size)
+    @for $i from 1 through $grid-columns
+        .flex-#{$size}-#{$i}
+            flex: $col-min-width * $i
+
+/*=== GLOBAL STYLES ===*/
+*
+    box-sizing: border-box
+
+html
+    font-size: 62.5%
+
+body
+    font-family: $base-font-family
+    color: #FFF
+    background-color: #FFF
+    
+.container
+    max-width: 1200px
+    width: 100%
+    padding: 0 15px
+    margin: 0 auto
+
+h1
+    font:
+        size: 6rem
+        weight: $light
+    margin-top: 0
+
+h2
+    color: $h2-color
+    font:
+        size: 3.5rem
+        weight: $light
+    margin-top: 0
+    
+h3
+    font:
+        size: 3rem
+        weight: $light
+    line-height: 4rem
+    
+h4
+    color: $h4-color
+    font:
+        size: 1.3rem
+        weight: $semi-bold
+    line-height: 2.4rem
+    
+p
+    color: $p-color
+    font:
+        size: 1.4rem
+        weight: $regular
+    line-height: 2.4rem
+    
+a
+    font:
+        size: 1.4rem
+        weight: $bold
+    line-height: 2.4rem
+    text-decoration: none
+    &:hover
+        border-bottom: 1px solid
+
+img
+    max-width: 100%
+    height: auto
+    
+/*=== GRID STYLES ===*/
+.row
+    margin: 0 -15px
+    &:before, &:after
+        content: ''
+        display: table
+        clear: both
+
+[class*="col-"]
+    float: left
+    width: 100%
+    min-height: 1px
+    padding: 0 15px
+    
+[class*="flex-"]
+    flex: 100%
+
+/*=== ADDITIONAL STYLES ===*/
+.pos-rel
+    position: relative
+    
+.space-bottom-m 
+    margin-bottom: 30px
+    
+.space-bottom-l
+    margin-bottom: 78px
+    
+.arrow-right:after
+    content: '\f178'
+    font:
+        family: $secondary-font-family
+        weight: normal
+    margin-left: 20px
+    
+.heart:after
+    content: '\f08a'
+    font:
+        size: 1.8rem
+        family: $secondary-font-family
+    position: absolute
+    right: 40px
+    bottom: 40px
+    
+.box-1
+    background-color: $box-1-color
+.box-2
+    background-color: $box-2-color
+.box-3
+    background:
+        image: url('../img/box-s.jpg')
+        size: cover
+.box-4
+    background:
+        image: url('../img/box-l.jpg')
+        size: cover
+.box-5
+    background-color: $box-5-color
+
+/*=== HEADER STYLES ===*/         
+header
+    height: 100vh
+    padding-top: 55px
+    background: url('../img/masthead.jpg') no-repeat center
+    background-size: cover
+    .logo:hover
+        border: none
+    .header-content
+        max-width: 500px
+        margin-top: 30%
+        h1, p
+            color: inherit
+
+/*=== START-INFO SECTION STYLES ===*/
+.start-info
+    padding: 115px 0 85px
+    .iphone-img
+        display: none
+        @media (min-width: $break-md)
+            display: inline-block
+            position: absolute
+            right: 0
+            bottom: 70px
+
+/*=== BOXES SECTION STYLES ===*/
+.boxes
+    .container
+        padding: 0
+    .flex-container
+        display: flex
+        flex-wrap: wrap
+    .flex-order
+        order: 0
+        @media (min-width: $break-sm)
+            order: 1
+        @media (min-width: $break-md)
+            order: 0
+    .box-item
+        padding: 20% 0
+        position: relative
+        @media (min-width: $break-sm)
+            padding: (69.5% / 2) 0
+        .box-content
+            padding: 42px 45px
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            h3
+                margin-top: 0
+            h3, p, a
+                color: inherit
+    .box-item-large
+        padding: 20% 0
+        @media (min-width: $break-sm)
+            padding: (34.75% / 2) 0
+
+/*=== DETAILS SECTION STYLES ===*/            
+.details
+    padding: 140px 0 160px 
+
+/*=== MORE-INFO SECTION STYLES ===*/    
+.more-info
+    height: 85vh
+    background: url('../img/wheel.jpg') no-repeat left
+    background-size: cover
+    .more-info-content
+        max-width: 550px
+        padding-top: 34%
+        p
+            max-width: 480px
+        h1, p, a
+            color: inherit
+
+/*=== REASONS SECTION STYLES ===*/
+.reasons
+    padding: 125px 0 165px
+    background-color: $reasons-sec-bg-color
+    h2, h4, p
+        color: inherit
+    p
+        margin-bottom: 0
+
+/*=== BUYING SECTION STYLES ===*/          
+.buying
+    padding: 100px 0 145px
+    background-color: $buying-sec-bg-color
+    .buying-content
+        padding: 50px 45px
+        &:hover
+            background-color: #FFF
+            box-shadow: 0 0 50px 0 rgba(0,0,0,.3)
+        &:hover .label
+            background-color: $label-hover-bg-color
+    h3
+        color: $buying-h3-color
+    p
+        color: $buying-p-color
+    .label
+        display: inline-block
+        padding: 1px 15px
+        border-radius: 5px
+        color: #FFF
+        background-color: $label-bg-color
+        font:
+            size: 1.1rem
+            weight: $extra-bold
+        line-height: 2.2rem
+        text-transform: uppercase
+    .btn-shop
+        width: 150px
+        height: 45px
+        padding: 0
+        border: none
+        border-radius: 3px
+        margin-bottom: 20px
+        color: #FFF
+        background-color: $button-bg-color
+        font:
+            size: 1.3rem
+            weight: $bold
+        line-height: 2.2rem
+        letter-spacing: .2rem
+        text-transform: uppercase
+        cursor: pointer
+    i.fa
+        color: $icon-color
+        font-size: 2rem
+        & + i.fa
+            margin-left: 15px
+
+/*=== FOOTER STYLES ===*/        
+footer
+    color: $footer-color
+    background-color: $footer-bg-color
+    padding: 130px 0 155px
+    p
+        font-size: 1.3rem
+    p, h4
+        color: inherit
+    ul
+        padding: 0
+        margin: 0
+        list-style: none
+        & a
+            color: inherit
+            font:
+                size: 1.3rem
+                weight: $regular
+    .form-group
+        margin-bottom: 20px
+        font-size: 0
+        input[type="email"]
+            width: 85%
+            height: 58px
+            padding: 0 20px
+            border: none
+            border:
+                top-left-radius: 2px
+                bottom-left-radius: 2px
+            color: $footer-bg-color
+            font-size: 1.3rem
+        .btn-contact
+            background-color: $button-bg-color
+            width: 15%
+            height: 58px
+            border: none
+            border:
+                top-right-radius: 2px
+                bottom-right-radius: 2px
+            vertical-align: bottom
+            cursor: pointer
+    .form-info
+        color: $form-info-color
+        font:
+            size: 1.2rem
+            weight: $regular
+        line-height: 1.8rem 
+
+/*=== MEDIA QUERIES GLOBAL ===*/        
+@media (min-width: 0)
+    +grid-system(xs)
+    +grid-offset-system(xs)
+
+@media (min-width: $break-sm)
+    +grid-system(sm)
+    +grid-offset-system(sm)
+    +flex-grid-system(sm)
+        
+@media (min-width: $break-md)
+    +grid-system(md)
+    +grid-offset-system(md)
+    +flex-grid-system(md)
