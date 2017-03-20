@@ -1,0 +1,29 @@
+{
+  "name": "pixel_perfect-grunt-example",
+  "version": "1.0.0",
+  "description": "Example grunt project",
+  "main": "index.js",
+  "scripts": {
+    "test": "pixel_perfect-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusz-s/Picture_Perfect_webpage.git"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "Mateusz Smykowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusz-s/Picture_Perfect_webpage/issues"
+  },
+  "homepage": "https://github.com/mateusz-s/Picture_Perfect_webpage#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

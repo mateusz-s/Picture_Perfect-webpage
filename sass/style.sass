@@ -17,7 +17,7 @@ $buying-h3-color: #2E3B4E
 $buying-p-color: #8297A7
 $label-bg-color: #E1E1E1
 $label-hover-bg-color: #BD8CBF
-$button-bg-color: #82CA9C
+$btn-bg-color: #82CA9C
 $icon-color: #C5C5C5
 $footer-color: #F6F7FA
 $footer-bg-color: #192431
@@ -33,6 +33,9 @@ $regular: 400
 $semi-bold: 600
 $bold: 700
 $extra-bold: 800
+
+//Elements dimensions
+$btn-contact-width: 15%
 
 //Breakpoints
 $break-sm: 768px
@@ -64,8 +67,8 @@ html
 
 body
     font-family: $base-font-family
-    color: #FFF
-    background-color: #FFF
+    color: #FFFFFF
+    background-color: #FFFFFF
     
 .container
     max-width: 1200px
@@ -133,18 +136,15 @@ img
     min-height: 1px
     padding: 0 15px
     
++grid-system(xs)
++grid-offset-system(xs)
+    
 [class*="flex-"]
     flex: 100%
 
 /*=== ADDITIONAL STYLES ===*/
 .pos-rel
     position: relative
-    
-.space-bottom-m 
-    margin-bottom: 30px
-    
-.space-bottom-l
-    margin-bottom: 78px
     
 .arrow-right:after
     content: '\f178'
@@ -177,6 +177,28 @@ img
 .box-5
     background-color: $box-5-color
 
+.boxes2
+    .row 
+        margin: 0
+    [class*="col-"]
+        padding: 0
+    .box-item
+        padding: (69.5% / 2) 0
+        position: relative
+        .box-content
+            padding: 20px
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            h3
+                margin-top: 0
+            h3, p, a
+                color: inherit
+    .box-item-large
+        padding: (34.75% / 2) 0
+
 /*=== HEADER STYLES ===*/         
 header
     height: 100vh
@@ -186,8 +208,10 @@ header
     .logo:hover
         border: none
     .header-content
-        max-width: 500px
+        max-width: 450px
         margin-top: 30%
+        p
+            font-size: 1.3rem
         h1, p
             color: inherit
 
@@ -229,6 +253,11 @@ header
             height: 100%
             h3
                 margin-top: 0
+            p
+                height: 96px
+                margin-bottom: 0
+                overflow: hidden
+                font-size: 1.3rem
             h3, p, a
                 color: inherit
     .box-item-large
@@ -249,7 +278,8 @@ header
         max-width: 550px
         padding-top: 34%
         p
-            max-width: 480px
+            max-width: 450px
+            font-size: 1.3rem
         h1, p, a
             color: inherit
 
@@ -268,8 +298,9 @@ header
     background-color: $buying-sec-bg-color
     .buying-content
         padding: 50px 45px
+        color: #FFFFFF
         &:hover
-            background-color: #FFF
+            background-color: #FFFFFF
             box-shadow: 0 0 50px 0 rgba(0,0,0,.3)
         &:hover .label
             background-color: $label-hover-bg-color
@@ -281,7 +312,6 @@ header
         display: inline-block
         padding: 1px 15px
         border-radius: 5px
-        color: #FFF
         background-color: $label-bg-color
         font:
             size: 1.1rem
@@ -295,8 +325,8 @@ header
         border: none
         border-radius: 3px
         margin-bottom: 20px
-        color: #FFF
-        background-color: $button-bg-color
+        color: inherit
+        background-color: $btn-bg-color
         font:
             size: 1.3rem
             weight: $bold
@@ -332,7 +362,7 @@ footer
         margin-bottom: 20px
         font-size: 0
         input[type="email"]
-            width: 85%
+            width: 100% - $btn-contact-width
             height: 58px
             padding: 0 20px
             border: none
@@ -342,8 +372,8 @@ footer
             color: $footer-bg-color
             font-size: 1.3rem
         .btn-contact
-            background-color: $button-bg-color
-            width: 15%
+            background-color: $btn-bg-color
+            width: $btn-contact-width
             height: 58px
             border: none
             border:
@@ -358,11 +388,7 @@ footer
             weight: $regular
         line-height: 1.8rem 
 
-/*=== MEDIA QUERIES GLOBAL ===*/        
-@media (min-width: 0)
-    +grid-system(xs)
-    +grid-offset-system(xs)
-
+/*=== MEDIA QUERIES GLOBAL ===*/
 @media (min-width: $break-sm)
     +grid-system(sm)
     +grid-offset-system(sm)

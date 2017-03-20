@@ -1,4 +1,5 @@
-README.txt
-img/
+img-src/
 css/style.css.map
+css/style.sass
 css/.sass-cache/
+node_modules
