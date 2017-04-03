@@ -4,6 +4,8 @@ $col-max-width: 100%
 $col-min-width: $col-max-width / $grid-columns
 
 //Colors
+$selection-bg-color: #82CA9C
+$text-color: #FFFFFF
 $h2-color: #222626
 $h4-color: #67676d
 $p-color: #959595
@@ -22,6 +24,8 @@ $icon-color: #C5C5C5
 $footer-color: #F6F7FA
 $footer-bg-color: #192431
 $form-info-color: #57697F
+$focus-color: #D7FFEF
+$outline-color: #509769
 
 //Fonts
 $base-font-family: 'Open Sans', sans-serif
@@ -57,8 +61,28 @@ $break-lg: 1200px
     @for $i from 1 through $grid-columns
         .flex-#{$size}-#{$i}
             flex: $col-min-width * $i
+    
+=basic-transition()
+    -webkit-transition: all .3s
+    -o-transition: all .3s
+    transition: all .3s
+    
+=transition($property,$time)
+    -webkit-transition: $property $time
+    -o-transition: $property $time
+    transition: $property $time
+    
+=tf-scale($k)
+    -webkit-transform: scale($k)
+    -ms-transform: scale($k)
+    -o-transform: scale($k)
+    transform: scale($k)
 
 /*=== GLOBAL STYLES ===*/
+::selection
+    color: $text-color
+    background-color: $selection-bg-color
+
 *
     box-sizing: border-box
 
@@ -67,7 +91,7 @@ html
 
 body
     font-family: $base-font-family
-    color: #FFFFFF
+    //color: #FFFFFF
     background-color: #FFFFFF
     
 .container
@@ -115,6 +139,10 @@ a
         weight: $bold
     line-height: 2.4rem
     text-decoration: none
+    border-bottom: 1px solid transparent
+    +transition(border-bottom,.3s) /* !!! */
+    &:focus
+        outline-color: $outline-color
     &:hover
         border-bottom: 1px solid
 
@@ -122,7 +150,11 @@ img
     max-width: 100%
     height: auto
     
-/*=== GRID STYLES ===*/
+input, button
+    outline: none
+    border: none
+    
+/*=== GRID STYLES - Mobile First ===*/
 .row
     margin: 0 -15px
     &:before, &:after
@@ -146,12 +178,22 @@ img
 .pos-rel
     position: relative
     
+.space-bottom-m 
+    //margin-bottom: 30px
+    
+.space-bottom-l
+    //margin-bottom: 78px
+    
 .arrow-right:after
     content: '\f178'
     font:
         family: $secondary-font-family
         weight: normal
     margin-left: 20px
+    +transition(margin-left,.3s) /* !!! */
+
+.arrow-right:hover:after
+    margin-left: 25px
     
 .heart:after
     content: '\f08a'
@@ -161,6 +203,10 @@ img
     position: absolute
     right: 40px
     bottom: 40px
+    +basic-transition()
+    
+.heart:hover:after
+    +tf-scale(1.3) /* !!! */
     
 .box-1
     background-color: $box-1-color
@@ -206,10 +252,13 @@ header
     background: url('../img/masthead.jpg') no-repeat center
     background-size: cover
     .logo:hover
-        border: none
+        border-color: transparent
     .header-content
+        color: $text-color/**/
         max-width: 450px
-        margin-top: 30%
+        margin-top: 45%
+        @media (min-width: $break-sm)
+            margin-top: 30%
         p
             font-size: 1.3rem
         h1, p
@@ -222,9 +271,12 @@ header
         display: none
         @media (min-width: $break-md)
             display: inline-block
+            max-width: 50% /* !!! */
             position: absolute
             right: 0
             bottom: 70px
+        @media (min-width: $break-lg)
+            max-width: 100% /* !!! */
 
 /*=== BOXES SECTION STYLES ===*/
 .boxes
@@ -240,29 +292,39 @@ header
         @media (min-width: $break-md)
             order: 0
     .box-item
-        padding: 20% 0
+        //height: 274px
+        padding: 137px 0 /*20% 0*/
+        color: $text-color
         position: relative
+        overflow: hidden
         @media (min-width: $break-sm)
+            //height: 0
             padding: (69.5% / 2) 0
         .box-content
-            padding: 42px 45px
+            //color: #FFFFFF/**/
+            padding: 30px/*42px 45px*/
             position: absolute
             top: 0
             left: 0
             width: 100%
             height: 100%
+            //overflow: hidden /* !!! */
             h3
                 margin-top: 0
             p
-                height: 96px
+                height: 12rem
+                @media (min-width: $break-sm)
+                    height: 9.6rem
                 margin-bottom: 0
                 overflow: hidden
                 font-size: 1.3rem
             h3, p, a
                 color: inherit
     .box-item-large
-        padding: 20% 0
+        //height: 274px
+        padding: 137px 0 /*20% 0*/
         @media (min-width: $break-sm)
+            //height: 0
             padding: (34.75% / 2) 0
 
 /*=== DETAILS SECTION STYLES ===*/            
@@ -275,22 +337,27 @@ header
     background: url('../img/wheel.jpg') no-repeat left
     background-size: cover
     .more-info-content
+        color: $text-color
         max-width: 550px
         padding-top: 34%
+        span
+            @extend h1
         p
             max-width: 450px
             font-size: 1.3rem
-        h1, p, a
+            margin-top: 4.07692em /*4.09231em*/
+        p, a /*h1*/
             color: inherit
 
 /*=== REASONS SECTION STYLES ===*/
 .reasons
-    padding: 125px 0 165px
+    padding: 125px 0 150px
+    color: $text-color
     background-color: $reasons-sec-bg-color
     h2, h4, p
         color: inherit
-    p
-        margin-bottom: 0
+    /*p
+        margin-bottom: 0*/
 
 /*=== BUYING SECTION STYLES ===*/          
 .buying
@@ -298,7 +365,8 @@ header
     background-color: $buying-sec-bg-color
     .buying-content
         padding: 50px 45px
-        color: #FFFFFF
+        color: $text-color
+        +basic-transition()
         &:hover
             background-color: #FFFFFF
             box-shadow: 0 0 50px 0 rgba(0,0,0,.3)
@@ -312,12 +380,14 @@ header
         display: inline-block
         padding: 1px 15px
         border-radius: 5px
+        //color: #FFFFFF
         background-color: $label-bg-color
         font:
             size: 1.1rem
             weight: $extra-bold
         line-height: 2.2rem
         text-transform: uppercase
+        +basic-transition()
     .btn-shop
         width: 150px
         height: 45px
@@ -334,9 +404,15 @@ header
         letter-spacing: .2rem
         text-transform: uppercase
         cursor: pointer
+        &:focus
+            box-shadow: 0 0 15px 7px $focus-color/*#A4ECBE*/
     i.fa
         color: $icon-color
         font-size: 2rem
+        cursor: pointer
+        +basic-transition()
+        &:hover
+            +tf-scale(1.5) /* !!! */
         & + i.fa
             margin-left: 15px
 
@@ -365,17 +441,24 @@ footer
             width: 100% - $btn-contact-width
             height: 58px
             padding: 0 20px
-            border: none
+            //border: 2px solid transparent
             border:
                 top-left-radius: 2px
                 bottom-left-radius: 2px
-            color: $footer-bg-color
             font-size: 1.3rem
+            +transition(all,.5s)
+            &:focus
+                color: $form-info-color
+                background-color: $focus-color
+                //border: 2px solid #82CA9C
+                //box-shadow: inset 0 0 2px 1px #82CA9C
+                border-right: none
+            &::-webkit-input-placeholder, &:focus::-webkit-input-placeholder
+                color: $form-info-color
         .btn-contact
             background-color: $btn-bg-color
             width: $btn-contact-width
             height: 58px
-            border: none
             border:
                 top-right-radius: 2px
                 bottom-right-radius: 2px
@@ -386,15 +469,17 @@ footer
         font:
             size: 1.2rem
             weight: $regular
-        line-height: 1.8rem 
+        line-height: 1.8rem
 
 /*=== MEDIA QUERIES GLOBAL ===*/
 @media (min-width: $break-sm)
+    /* Grid for Tablets - Size sm */
     +grid-system(sm)
     +grid-offset-system(sm)
     +flex-grid-system(sm)
         
 @media (min-width: $break-md)
+    /* Grid for Desktops - Size md */
     +grid-system(md)
     +grid-offset-system(md)
     +flex-grid-system(md)
