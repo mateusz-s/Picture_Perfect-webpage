@@ -55,8 +55,7 @@ a {
   border-bottom: 1px solid transparent;
   -webkit-transition: border-bottom 0.3s;
   -o-transition: border-bottom 0.3s;
-  transition: border-bottom 0.3s;
-  /* !!! */ }
+  transition: border-bottom 0.3s; }
   a:focus {
     outline-color: #509769; }
   a:hover {
@@ -170,8 +169,7 @@ input, button {
   margin-left: 20px;
   -webkit-transition: margin-left 0.3s;
   -o-transition: margin-left 0.3s;
-  transition: margin-left 0.3s;
-  /* !!! */ }
+  transition: margin-left 0.3s; }
 
 .arrow-right:hover:after {
   margin-left: 25px; }
@@ -191,8 +189,7 @@ input, button {
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);
   -o-transform: scale(1.3);
-  transform: scale(1.3);
-  /* !!! */ }
+  transform: scale(1.3); }
 
 .box-1 {
   background-color: #F5989D; }
@@ -346,9 +343,7 @@ header {
 .reasons {
   padding: 125px 0 150px;
   color: #FFFFFF;
-  background-color: #82CA9C;
-  /*p
-        margin-bottom: 0*/ }
+  background-color: #82CA9C; }
   .reasons h2, .reasons h4, .reasons p {
     color: inherit; }
 
@@ -411,8 +406,7 @@ header {
       -webkit-transform: scale(1.5);
       -ms-transform: scale(1.5);
       -o-transform: scale(1.5);
-      transform: scale(1.5);
-      /* !!! */ }
+      transform: scale(1.5); }
     .buying i.fa + i.fa {
       margin-left: 15px; }
 

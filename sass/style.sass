@@ -91,7 +91,6 @@ html
 
 body
     font-family: $base-font-family
-    //color: #FFFFFF
     background-color: #FFFFFF
     
 .container
@@ -140,7 +139,7 @@ a
     line-height: 2.4rem
     text-decoration: none
     border-bottom: 1px solid transparent
-    +transition(border-bottom,.3s) /* !!! */
+    +transition(border-bottom,.3s)
     &:focus
         outline-color: $outline-color
     &:hover
@@ -178,19 +177,13 @@ input, button
 .pos-rel
     position: relative
     
-.space-bottom-m 
-    //margin-bottom: 30px
-    
-.space-bottom-l
-    //margin-bottom: 78px
-    
 .arrow-right:after
     content: '\f178'
     font:
         family: $secondary-font-family
         weight: normal
     margin-left: 20px
-    +transition(margin-left,.3s) /* !!! */
+    +transition(margin-left,.3s)
 
 .arrow-right:hover:after
     margin-left: 25px
@@ -206,7 +199,7 @@ input, button
     +basic-transition()
     
 .heart:hover:after
-    +tf-scale(1.3) /* !!! */
+    +tf-scale(1.3)
     
 .box-1
     background-color: $box-1-color
@@ -254,7 +247,7 @@ header
     .logo:hover
         border-color: transparent
     .header-content
-        color: $text-color/**/
+        color: $text-color
         max-width: 450px
         margin-top: 45%
         @media (min-width: $break-sm)
@@ -271,12 +264,12 @@ header
         display: none
         @media (min-width: $break-md)
             display: inline-block
-            max-width: 50% /* !!! */
+            max-width: 50%
             position: absolute
             right: 0
             bottom: 70px
         @media (min-width: $break-lg)
-            max-width: 100% /* !!! */
+            max-width: 100%
 
 /*=== BOXES SECTION STYLES ===*/
 .boxes
@@ -292,23 +285,19 @@ header
         @media (min-width: $break-md)
             order: 0
     .box-item
-        //height: 274px
-        padding: 137px 0 /*20% 0*/
+        padding: 137px 0
         color: $text-color
         position: relative
         overflow: hidden
         @media (min-width: $break-sm)
-            //height: 0
             padding: (69.5% / 2) 0
         .box-content
-            //color: #FFFFFF/**/
-            padding: 30px/*42px 45px*/
+            padding: 30px
             position: absolute
             top: 0
             left: 0
             width: 100%
             height: 100%
-            //overflow: hidden /* !!! */
             h3
                 margin-top: 0
             p
@@ -321,10 +310,8 @@ header
             h3, p, a
                 color: inherit
     .box-item-large
-        //height: 274px
-        padding: 137px 0 /*20% 0*/
+        padding: 137px 0
         @media (min-width: $break-sm)
-            //height: 0
             padding: (34.75% / 2) 0
 
 /*=== DETAILS SECTION STYLES ===*/            
@@ -345,8 +332,8 @@ header
         p
             max-width: 450px
             font-size: 1.3rem
-            margin-top: 4.07692em /*4.09231em*/
-        p, a /*h1*/
+            margin-top: 4.07692em
+        p, a
             color: inherit
 
 /*=== REASONS SECTION STYLES ===*/
@@ -356,8 +343,6 @@ header
     background-color: $reasons-sec-bg-color
     h2, h4, p
         color: inherit
-    /*p
-        margin-bottom: 0*/
 
 /*=== BUYING SECTION STYLES ===*/          
 .buying
@@ -380,7 +365,6 @@ header
         display: inline-block
         padding: 1px 15px
         border-radius: 5px
-        //color: #FFFFFF
         background-color: $label-bg-color
         font:
             size: 1.1rem
@@ -405,14 +389,14 @@ header
         text-transform: uppercase
         cursor: pointer
         &:focus
-            box-shadow: 0 0 15px 7px $focus-color/*#A4ECBE*/
+            box-shadow: 0 0 15px 7px $focus-color
     i.fa
         color: $icon-color
         font-size: 2rem
         cursor: pointer
         +basic-transition()
         &:hover
-            +tf-scale(1.5) /* !!! */
+            +tf-scale(1.5)
         & + i.fa
             margin-left: 15px
 
@@ -441,7 +425,6 @@ footer
             width: 100% - $btn-contact-width
             height: 58px
             padding: 0 20px
-            //border: 2px solid transparent
             border:
                 top-left-radius: 2px
                 bottom-left-radius: 2px
@@ -450,8 +433,6 @@ footer
             &:focus
                 color: $form-info-color
                 background-color: $focus-color
-                //border: 2px solid #82CA9C
-                //box-shadow: inset 0 0 2px 1px #82CA9C
                 border-right: none
             &::-webkit-input-placeholder, &:focus::-webkit-input-placeholder
                 color: $form-info-color
