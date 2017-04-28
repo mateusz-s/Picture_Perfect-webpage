@@ -3,9 +3,16 @@ $grid-columns: 12
 $col-max-width: 100%
 $col-min-width: $col-max-width / $grid-columns
 
+//Grid system breakpoints
+$break-sm: 576px
+$break-md: 768px
+$break-lg: 992px
+$break-xl: 1200px
+
 //Colors
 $selection-bg-color: #82CA9C
 $text-color: #FFFFFF
+$bg-color: #FFFFFF
 $h2-color: #222626
 $h4-color: #67676d
 $p-color: #959595
@@ -41,11 +48,6 @@ $extra-bold: 800
 //Elements dimensions
 $btn-contact-width: 15%
 
-//Breakpoints
-$break-sm: 768px
-$break-md: 992px
-$break-lg: 1200px
-
 //Mixins
 =grid-system($size)
     @for $i from 1 through $grid-columns
@@ -78,7 +80,7 @@ $break-lg: 1200px
     -o-transform: scale($k)
     transform: scale($k)
 
-/*=== GLOBAL STYLES ===*/
+/* === GLOBAL STYLES === */
 ::selection
     color: $text-color
     background-color: $selection-bg-color
@@ -91,7 +93,7 @@ html
 
 body
     font-family: $base-font-family
-    background-color: #FFFFFF
+    background-color: $bg-color
     
 .container
     max-width: 1200px
@@ -101,9 +103,11 @@ body
 
 h1
     font:
-        size: 6rem
+        size: 5rem
         weight: $light
     margin-top: 0
+    @media (min-width: $break-md)
+        font-size: 6rem
 
 h2
     color: $h2-color
@@ -127,9 +131,7 @@ h4
     
 p
     color: $p-color
-    font:
-        size: 1.4rem
-        weight: $regular
+    font-size: 1.4rem
     line-height: 2.4rem
     
 a
@@ -153,7 +155,7 @@ input, button
     outline: none
     border: none
     
-/*=== GRID STYLES - Mobile First ===*/
+/* === GRID SYSTEM STYLES - Mobile First === */
 .row
     margin: 0 -15px
     &:before, &:after
@@ -173,7 +175,7 @@ input, button
 [class*="flex-"]
     flex: 100%
 
-/*=== ADDITIONAL STYLES ===*/
+/* === ADDITIONAL STYLES === */
 .pos-rel
     position: relative
     
@@ -194,8 +196,8 @@ input, button
         size: 1.8rem
         family: $secondary-font-family
     position: absolute
-    right: 40px
-    bottom: 40px
+    right: 30px
+    bottom: 30px
     +basic-transition()
     
 .heart:hover:after
@@ -208,70 +210,54 @@ input, button
 .box-3
     background:
         image: url('../img/box-s.jpg')
+        repeat: no-repeat
         size: cover
 .box-4
     background:
         image: url('../img/box-l.jpg')
+        repeat: no-repeat
         size: cover
 .box-5
     background-color: $box-5-color
 
-.boxes2
-    .row 
-        margin: 0
-    [class*="col-"]
-        padding: 0
-    .box-item
-        padding: (69.5% / 2) 0
-        position: relative
-        .box-content
-            padding: 20px
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            h3
-                margin-top: 0
-            h3, p, a
-                color: inherit
-    .box-item-large
-        padding: (34.75% / 2) 0
-
-/*=== HEADER STYLES ===*/         
+/* === HEADER STYLES === */         
 header
     height: 100vh
     padding-top: 55px
-    background: url('../img/masthead.jpg') no-repeat center
-    background-size: cover
+    background: 
+        image: url('../img/masthead.jpg') 
+        repeat: no-repeat 
+        position: center
+        size: cover
+    overflow: hidden
     .logo:hover
         border-color: transparent
     .header-content
         color: $text-color
         max-width: 450px
         margin-top: 45%
-        @media (min-width: $break-sm)
+        @media (min-width: $break-md)
             margin-top: 30%
         p
             font-size: 1.3rem
         h1, p
             color: inherit
 
-/*=== START-INFO SECTION STYLES ===*/
+/* === START-INFO SECTION STYLES === */
 .start-info
-    padding: 115px 0 85px
+    padding: 130px 0
     .iphone-img
         display: none
-        @media (min-width: $break-md)
+        @media (min-width: $break-lg)
             display: inline-block
             max-width: 50%
             position: absolute
             right: 0
             bottom: 70px
-        @media (min-width: $break-lg)
+        @media (min-width: $break-xl)
             max-width: 100%
 
-/*=== BOXES SECTION STYLES ===*/
+/* === BOXES SECTION STYLES === */
 .boxes
     .container
         padding: 0
@@ -280,49 +266,54 @@ header
         flex-wrap: wrap
     .flex-order
         order: 0
-        @media (min-width: $break-sm)
-            order: 1
         @media (min-width: $break-md)
+            order: 1
+        @media (min-width: $break-lg)
             order: 0
     .box-item
-        padding: 137px 0
+        padding: 145px 0
         color: $text-color
         position: relative
         overflow: hidden
-        @media (min-width: $break-sm)
+        @media (min-width: $break-md)
             padding: (69.5% / 2) 0
-        .box-content
-            padding: 30px
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            h3
-                margin-top: 0
-            p
-                height: 12rem
-                @media (min-width: $break-sm)
-                    height: 9.6rem
-                margin-bottom: 0
-                overflow: hidden
-                font-size: 1.3rem
-            h3, p, a
-                color: inherit
+    .box-content
+        display: flex;
+        flex-direction: column
+        justify-content: space-between
+        padding: 30px
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        h3
+            margin-top: 0
+        p
+            margin-bottom: 0
+            font-size: 1.3rem
+            overflow: hidden
+        h3, p, a
+            color: inherit
     .box-item-large
-        padding: 137px 0
-        @media (min-width: $break-sm)
+        padding: 145px 0
+        @media (min-width: $break-md)
             padding: (34.75% / 2) 0
 
-/*=== DETAILS SECTION STYLES ===*/            
+/* === DETAILS SECTION STYLES === */            
 .details
-    padding: 140px 0 160px 
+    padding: 130px 0
 
-/*=== MORE-INFO SECTION STYLES ===*/    
+/* === MORE-INFO SECTION STYLES === */    
 .more-info
     height: 85vh
-    background: url('../img/wheel.jpg') no-repeat left
-    background-size: cover
+    background: 
+        image: url('../img/wheel.jpg') 
+        repeat: no-repeat
+        position: left
+        attachment: fixed
+        size: cover
+    overflow: hidden
     .more-info-content
         color: $text-color
         max-width: 550px
@@ -336,20 +327,20 @@ header
         p, a
             color: inherit
 
-/*=== REASONS SECTION STYLES ===*/
+/* === REASONS SECTION STYLES === */
 .reasons
-    padding: 125px 0 150px
+    padding: 130px 0
     color: $text-color
     background-color: $reasons-sec-bg-color
     h2, h4, p
         color: inherit
 
-/*=== BUYING SECTION STYLES ===*/          
+/* === BUYING SECTION STYLES === */          
 .buying
-    padding: 100px 0 145px
+    padding: 130px 0
     background-color: $buying-sec-bg-color
     .buying-content
-        padding: 50px 45px
+        padding: 15% 10%
         color: $text-color
         +basic-transition()
         &:hover
@@ -357,6 +348,8 @@ header
             box-shadow: 0 0 50px 0 rgba(0,0,0,.3)
         &:hover .label
             background-color: $label-hover-bg-color
+        @media (min-width: $break-md)
+            padding: 50px 45px
     h3
         color: $buying-h3-color
     p
@@ -400,11 +393,11 @@ header
         & + i.fa
             margin-left: 15px
 
-/*=== FOOTER STYLES ===*/        
+/* === FOOTER STYLES === */        
 footer
+    padding: 130px 0
     color: $footer-color
     background-color: $footer-bg-color
-    padding: 130px 0 155px
     p
         font-size: 1.3rem
     p, h4
@@ -418,6 +411,10 @@ footer
             font:
                 size: 1.3rem
                 weight: $regular
+    .form-heading
+        margin-top: 3rem
+        @media (min-width: $break-md)
+            margin-top: 1.33em
     .form-group
         margin-bottom: 20px
         font-size: 0
@@ -452,15 +449,27 @@ footer
             weight: $regular
         line-height: 1.8rem
 
-/*=== MEDIA QUERIES GLOBAL ===*/
+/* === MEDIA QUERIES GLOBAL === */
 @media (min-width: $break-sm)
-    /* Grid for Tablets - Size sm */
+    /* Grid for Smartphones - Size sm */
     +grid-system(sm)
     +grid-offset-system(sm)
     +flex-grid-system(sm)
         
 @media (min-width: $break-md)
-    /* Grid for Desktops - Size md */
+    /* Grid for Tablets - Size md */
     +grid-system(md)
     +grid-offset-system(md)
     +flex-grid-system(md)
+        
+@media (min-width: $break-lg)
+    /* Grid for Desktops - Size lg */
+    +grid-system(lg)
+    +grid-offset-system(lg)
+    +flex-grid-system(lg)
+        
+@media (min-width: $break-xl)
+    /* Grid for Desktops - Size xl */
+    +grid-system(xl)
+    +grid-offset-system(xl)
+    +flex-grid-system(xl)
