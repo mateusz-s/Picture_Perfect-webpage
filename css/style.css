@@ -215,6 +215,7 @@ input, button {
 /* === HEADER STYLES === */
 header {
   height: 100vh;
+  padding-top: 3.3%;
   background-image: url("../img/masthead.jpg");
   background-repeat: no-repeat;
   background-position: center;

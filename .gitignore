@@ -2,4 +2,7 @@ img-src/
 css/*.map
 css/style.sass
 css/.sass-cache/
+sass/style_org.sass
 node_modules
+.gitignore
+
