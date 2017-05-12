@@ -103,7 +103,7 @@ body
 
 h1
     font:
-        size: 5rem
+        size: 4.2rem
         weight: $light
     margin-top: 0
     @media (min-width: $break-md)
@@ -223,21 +223,23 @@ input, button
 /* === HEADER STYLES === */         
 header
     height: 100vh
-    padding-top: 55px
     background: 
         image: url('../img/masthead.jpg') 
         repeat: no-repeat 
         position: center
         size: cover
     overflow: hidden
-    .logo:hover
-        border-color: transparent
+    .container
+        display: flex
+        flex-wrap: wrap
+        height: 100%
+    .logo
+        flex: 100%
+        &:hover
+            border-color: transparent
     .header-content
         color: $text-color
         max-width: 450px
-        margin-top: 45%
-        @media (min-width: $break-md)
-            margin-top: 30%
         p
             font-size: 1.3rem
         h1, p
@@ -307,6 +309,7 @@ header
 /* === MORE-INFO SECTION STYLES === */    
 .more-info
     height: 85vh
+    padding-bottom: 5.1%
     background: 
         image: url('../img/wheel.jpg') 
         repeat: no-repeat
@@ -314,16 +317,22 @@ header
         attachment: fixed
         size: cover
     overflow: hidden
+    .container
+        display: flex
+        align-items: flex-end
+        height: 100%
     .more-info-content
         color: $text-color
-        max-width: 550px
-        padding-top: 34%
+        @media (min-width: $break-md)
+            max-width: 550px
         span
             @extend h1
         p
-            max-width: 450px
             font-size: 1.3rem
-            margin-top: 4.07692em
+            @media (min-width: $break-md)
+                max-width: 450px
+            @media (min-width: $break-lg)
+                margin-top: 4.07692em
         p, a
             color: inherit
 

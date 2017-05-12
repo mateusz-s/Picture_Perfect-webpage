@@ -20,7 +20,7 @@ body {
   margin: 0 auto; }
 
 h1, .more-info .more-info-content span {
-  font-size: 5rem;
+  font-size: 4.2rem;
   font-weight: 300;
   margin-top: 0; }
   @media (min-width: 768px) {
@@ -215,21 +215,22 @@ input, button {
 /* === HEADER STYLES === */
 header {
   height: 100vh;
-  padding-top: 55px;
   background-image: url("../img/masthead.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow: hidden; }
-  header .logo:hover {
-    border-color: transparent; }
+  header .container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%; }
+  header .logo {
+    flex: 100%; }
+    header .logo:hover {
+      border-color: transparent; }
   header .header-content {
     color: #FFFFFF;
-    max-width: 450px;
-    margin-top: 45%; }
-    @media (min-width: 768px) {
-      header .header-content {
-        margin-top: 30%; } }
+    max-width: 450px; }
     header .header-content p {
       font-size: 1.3rem; }
     header .header-content h1, header .header-content .more-info .more-info-content span, .more-info .more-info-content header .header-content span, header .header-content p {
@@ -309,20 +310,30 @@ header {
 /* === MORE-INFO SECTION STYLES === */
 .more-info {
   height: 85vh;
+  padding-bottom: 5.1%;
   background-image: url("../img/wheel.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-attachment: fixed;
   background-size: cover;
   overflow: hidden; }
+  .more-info .container {
+    display: flex;
+    align-items: flex-end;
+    height: 100%; }
   .more-info .more-info-content {
-    color: #FFFFFF;
-    max-width: 550px;
-    padding-top: 34%; }
+    color: #FFFFFF; }
+    @media (min-width: 768px) {
+      .more-info .more-info-content {
+        max-width: 550px; } }
     .more-info .more-info-content p {
-      max-width: 450px;
-      font-size: 1.3rem;
-      margin-top: 4.07692em; }
+      font-size: 1.3rem; }
+      @media (min-width: 768px) {
+        .more-info .more-info-content p {
+          max-width: 450px; } }
+      @media (min-width: 992px) {
+        .more-info .more-info-content p {
+          margin-top: 4.07692em; } }
     .more-info .more-info-content p, .more-info .more-info-content a {
       color: inherit; }
 
