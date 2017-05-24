@@ -1,9 +1,0 @@
-img-src/
-img/iPhone_org.png
-css/*.map
-css/style.sass
-css/.sass-cache/
-sass/style_org.sass
-node_modules
-.gitignore
-
